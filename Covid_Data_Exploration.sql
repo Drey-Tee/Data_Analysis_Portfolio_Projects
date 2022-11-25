@@ -75,7 +75,7 @@ ON dea.location = vac.location
 WHERE dea.continent IS NOT NULL
 ORDER BY 2,3;
 
--- Using CTE to perform Calculation on Partition By in previous query
+-- Using Common Table Expression(CTE) to perform Calculation on Partition By in previous query
 WITH population_vaccinated (continent, location, date, population, new_vaccinations, rolling_people_vaccinated)
 AS
 (
