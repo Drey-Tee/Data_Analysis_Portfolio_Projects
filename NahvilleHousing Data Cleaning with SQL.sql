@@ -57,7 +57,7 @@
  SELECT 
   SUBSTRING_INDEX(OwnerAddress,',', 1) AS OwnerAddress,
   SUBSTRING_INDEX(SUBSTRING_INDEX(OwnerAddress,',', 2),',',-1) AS OwnerCity,
-   SUBSTRING_INDEX(SUBSTRING_INDEX(OwnerAddress,',', -2),',',-1) AS OwnerState
+  SUBSTRING_INDEX(SUBSTRING_INDEX(OwnerAddress,',', -2),',',-1) AS OwnerState
   FROM portfolio_projects.nashvillehousingdata; 
   
   
@@ -151,8 +151,6 @@ FROM portfolio_projects.nashvillehousingdata;
 -- Delete Unused Columns
 SELECT *
 FROM portfolio_projects.nashvillehousingdata;
-
-
 ALTER TABLE portfolio_projects.nashvillehousingdata
 DROP COLUMN OwnerAddress, 
 DROP TaxDistrict, 
