@@ -4,6 +4,7 @@
   SELECT *
   FROM portfolio_projects.nashvillehousingdata; 
   
+  
   -- Populate Property Address Data
   SELECT * 
   FROM portfolio_projects.nashvillehousingdata
@@ -25,8 +26,9 @@
   
   SELECT PropertyAddress
   FROM portfolio_projects.nashvillehousingdata;
-  -- Splitting Address into Individual Columns(i.e City, State, Address)
   
+  
+  -- Splitting Address into Individual Columns(i.e City, State, Address)
   SELECT 
   SUBSTRING(PropertyAddress, 1, LOCATE(',', PropertyAddress) - 1) AS Address,
   SUBSTRING(PropertyAddress, LOCATE(',', PropertyAddress) + 1, CHAR_LENGTH(PropertyAddress)) AS City
@@ -49,6 +51,7 @@
   
   SELECT OwnerAddress
   FROM portfolio_projects.nashvillehousingdata;
+  
   
 -- Splitting Owner Address into Individual Columns(i.e City, State, Address)
  SELECT 
@@ -79,8 +82,8 @@ SET OwnerSplitState =  SUBSTRING_INDEX(SUBSTRING_INDEX(OwnerAddress,',', -2),','
 SELECT *
 FROM portfolio_projects.nashvillehousingdata;
 
--- Change Y and N to Yes and No in "Sold as Vacant" field
 
+-- Change Y and N to Yes and No in "Sold as Vacant" field
 SELECT DISTINCT(SoldAsVacant), COUNT(SoldAsVacant)
 FROM portfolio_projects.nashvillehousingdata
 GROUP BY SoldAsVacant
@@ -103,7 +106,6 @@ SET SoldAsVacant = CASE WHEN SoldAsVacant = 'Y' THEN 'Yes'
        
        
 -- Remove Duplicates
-
 WITH RowNumCTE AS(
 SELECT *,
 	ROW_NUMBER() OVER (
@@ -144,10 +146,9 @@ WHERE row_num > 1;
 SELECT *
 FROM portfolio_projects.nashvillehousingdata;
 
+
+
 -- Delete Unused Columns
-
-
-
 SELECT *
 FROM portfolio_projects.nashvillehousingdata;
 
